@@ -74,11 +74,13 @@
 
 	<!-- Dependencies -->
 	<dependencies>
+		<!-- <dependency> <groupId>charts</groupId> <artifactId>javafx-dataviewer</artifactId> 
+			<version>1.0.4</version> </dependency> -->
 
 		<dependency>
-			<groupId>charts</groupId>
-			<artifactId>javafx-dataviewer</artifactId>
-			<version>1.0.4</version>
+			<groupId>org.charts</groupId>
+			<artifactId>dataviewer</artifactId>
+			<version>1.0.0</version>
 		</dependency>
 
 		<!-- Logging Logback -->

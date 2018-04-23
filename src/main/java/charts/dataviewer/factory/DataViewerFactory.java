@@ -10,11 +10,11 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-import charts.dataviewer.DataViewer;
-import charts.dataviewer.api.config.DataViewerConfiguration;
-import charts.dataviewer.api.data.PlotData;
-import charts.dataviewer.api.trace.LineTrace;
-import charts.dataviewer.utils.AxisType;
+import org.charts.dataviewer.DataViewer;
+import org.charts.dataviewer.api.config.DataViewerConfiguration;
+import org.charts.dataviewer.api.data.PlotData;
+import org.charts.dataviewer.api.trace.LineTrace;
+import org.charts.dataviewer.utils.AxisType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,7 +29,7 @@ public class DataViewerFactory {
 	public static DataViewer createDataViewerExample1() {
 
 		DataViewer dataviewer = new DataViewer();
-		
+
 		DataViewerConfiguration config = new DataViewerConfiguration();
 		config.setPlotTitle("Line Trace Example");
 		config.setxAxisTitle("X Example 1");
@@ -170,7 +170,7 @@ public class DataViewerFactory {
 		}
 
 		DataViewer dataviewer = new DataViewer();
-		
+
 		logger.info("dataviewer id is : {}", dataviewer.getUniqueID());
 
 		DataViewerConfiguration config = new DataViewerConfiguration();
@@ -190,13 +190,16 @@ public class DataViewerFactory {
 
 		dataviewer.updatePlot(plotData);
 
-		executor.scheduleAtFixedRate(() -> DataViewerFactory.updateTune(dataviewer, bigTrace, parsedTuneDataDouble, plotData), 5000, 150, TimeUnit.MILLISECONDS);
+		executor.scheduleAtFixedRate(
+				() -> DataViewerFactory.updateTune(dataviewer, bigTrace, parsedTuneDataDouble, plotData), 5000, 150,
+				TimeUnit.MILLISECONDS);
 
 		return dataviewer;
 
 	}
 
-	private static void updateTune(DataViewer dataviewer, LineTrace<Double> tuneTrace, List<Double[]> tuneData, PlotData plotData) {
+	private static void updateTune(DataViewer dataviewer, LineTrace<Double> tuneTrace, List<Double[]> tuneData,
+			PlotData plotData) {
 		if (index == tuneData.size())
 			index = 0;
 		tuneTrace.setyArray(tuneData.get(index++));
