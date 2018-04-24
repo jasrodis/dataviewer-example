@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 
 public class DataViewerExample {
 
-	private static final Logger log = LoggerFactory.getLogger(DataViewerExample.class.getName());
+	private static final Logger log = LoggerFactory.getLogger(DataViewerExample.class);
 
 	public static void main(String[] args) throws InterruptedException {
 		log.info("Application started!");
