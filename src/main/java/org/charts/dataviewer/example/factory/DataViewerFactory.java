@@ -1,4 +1,4 @@
-package charts.dataviewer.factory;
+package org.charts.dataviewer.example.factory;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -20,15 +20,20 @@ import org.slf4j.LoggerFactory;
 
 public class DataViewerFactory {
 
-	private final static Logger logger = LoggerFactory.getLogger(DataViewerFactory.class.getName());
+	private static final Logger log = LoggerFactory.getLogger(DataViewerFactory.class);
 
 	private static ScheduledExecutorService executor = Executors.newScheduledThreadPool(4);
 
 	private static int index = 0;
 
+	private DataViewerFactory() {
+		// Intentionally empty
+	}
+
 	public static DataViewer createDataViewerExample1() {
 
-		DataViewer dataviewer = new DataViewer();
+		DataViewer dataviewer = new DataViewer("example1");
+		log.info("Running at : {}", dataviewer.getUrl());
 
 		DataViewerConfiguration config = new DataViewerConfiguration();
 		config.setPlotTitle("Line Trace Example");
@@ -50,7 +55,8 @@ public class DataViewerFactory {
 
 	public static DataViewer createDataViewerExample2() {
 
-		DataViewer dataviewer = new DataViewer();
+		DataViewer dataviewer = new DataViewer("example2");
+		log.info("Running at : {}", dataviewer.getUrl());
 
 		DataViewerConfiguration config = new DataViewerConfiguration();
 		config.setPlotTitle("Multiple Trace Example");
@@ -70,7 +76,8 @@ public class DataViewerFactory {
 	}
 
 	public static DataViewer createDataViewerExample3() {
-		DataViewer dataviewer = new DataViewer();
+		DataViewer dataviewer = new DataViewer("example3");
+		log.info("Running at : {}", dataviewer.getUrl());
 
 		DataViewerConfiguration config = new DataViewerConfiguration();
 		config.setPlotTitle("Bar Trace Example");
@@ -90,7 +97,8 @@ public class DataViewerFactory {
 	}
 
 	public static DataViewer createDataViewerExample4() {
-		DataViewer dataviewer = new DataViewer();
+		DataViewer dataviewer = new DataViewer("example4");
+		log.info("Running at : {}", dataviewer.getUrl());
 
 		DataViewerConfiguration config = new DataViewerConfiguration();
 		config.setPlotTitle("Scatter Trace Example");
@@ -108,109 +116,10 @@ public class DataViewerFactory {
 		return dataviewer;
 	}
 
-	public static synchronized DataViewer createDataViewerTuneExample(int caseIdx) {
-
-		String csvFile = "";
-		String plotTitle = "";
-		switch (caseIdx) {
-		case 1:
-			csvFile = DataViewerFactory.class.getResource("/files/test_file1.csv").getPath();
-			plotTitle = "Test 1a data";
-			break;
-		case 2:
-			csvFile = DataViewerFactory.class.getResource("/files/test_file2.csv").getPath();
-			plotTitle = "Test 1b data";
-			break;
-		case 3:
-			csvFile = DataViewerFactory.class.getResource("/files/test_file3.csv").getPath();
-			plotTitle = "Test 2a data";
-			break;
-		case 4:
-			csvFile = DataViewerFactory.class.getResource("/files/test_file4.csv").getPath();
-			plotTitle = "Test 2b data";
-			break;
-		default:
-			logger.error("Invalid input for createDataViewerTuneExample(int caseIdx)");
-			return null;
-		}
-
-		List<Double[]> parsedTuneDataDouble = new ArrayList<>();
-
-		BufferedReader bufferReader = null;
-		String line = "";
-		try {
-			bufferReader = new BufferedReader(new FileReader(csvFile));
-			while ((line = bufferReader.readLine()) != null) {
-				String[] field = line.split(",");
-				Double[] tuneDataRow = new Double[512];
-				if (field.length == 513) {
-					for (int i = 1; i < field.length; i++) {
-						tuneDataRow[i - 1] = Double.parseDouble(field[i]);
-					}
-					parsedTuneDataDouble.add(tuneDataRow);
-				}
-			}
-		} catch (FileNotFoundException ex) {
-			logger.error("FileNotFoundException", ex);
-		} catch (IOException ex) {
-			logger.error("IOException", ex);
-		} finally {
-			if (bufferReader != null) {
-				try {
-					bufferReader.close();
-				} catch (IOException ex) {
-					logger.error("IOException", ex);
-				}
-			}
-		}
-
-		Double[] exampleFrequency = new Double[512];
-		for (int i = 0; i < 512; i++) {
-			exampleFrequency[i] = (double) 11000 / (exampleFrequency.length * 2) * i;
-		}
-
-		DataViewer dataviewer = new DataViewer();
-
-		logger.info("dataviewer id is : {}", dataviewer.getUniqueID());
-
-		DataViewerConfiguration config = new DataViewerConfiguration();
-		config.setPlotTitle(plotTitle);
-		config.setxAxisTitle("Frequency(Hz)");
-		config.setyAxisTitle("Data");
-		config.showLegend(true);
-		config.setyRange(-160.0, -50.0);
-		dataviewer.updateConfiguration(config);
-
-		PlotData plotData = new PlotData();
-		LineTrace<Double> bigTrace = new LineTrace<>();
-		bigTrace.setTraceName("example trace");
-		bigTrace.setxArray(exampleFrequency);
-
-		plotData.addTrace(bigTrace);
-
-		dataviewer.updatePlot(plotData);
-
-		executor.scheduleAtFixedRate(
-				() -> DataViewerFactory.updateTune(dataviewer, bigTrace, parsedTuneDataDouble, plotData), 5000, 150,
-				TimeUnit.MILLISECONDS);
-
-		return dataviewer;
-
-	}
-
-	private static void updateTune(DataViewer dataviewer, LineTrace<Double> tuneTrace, List<Double[]> tuneData,
-			PlotData plotData) {
-		if (index == tuneData.size())
-			index = 0;
-		tuneTrace.setyArray(tuneData.get(index++));
-		PlotData plot = new PlotData();
-		plot.addTrace(tuneTrace);
-		dataviewer.updatePlot(plot);
-	}
-
 	public static DataViewer createDataViewerExample5() {
 
-		DataViewer dataviewer = new DataViewer();
+		DataViewer dataviewer = new DataViewer("example5");
+		log.info("Running at : [{}]", dataviewer.getUrl());
 
 		DataViewerConfiguration config = new DataViewerConfiguration();
 		config.setPlotTitle("Hybrid Log Trace Example");
@@ -234,7 +143,8 @@ public class DataViewerFactory {
 
 	public static DataViewer createDataViewerExample6() {
 
-		DataViewer dataviewer = new DataViewer();
+		DataViewer dataviewer = new DataViewer("example6");
+		log.info("Running at : {}", dataviewer.getUrl());
 
 		DataViewerConfiguration config = new DataViewerConfiguration();
 		config.setPlotTitle("TimeSeries Trace Example");
@@ -253,7 +163,8 @@ public class DataViewerFactory {
 
 	public static DataViewer createDataViewerExample7() {
 
-		DataViewer dataviewer = new DataViewer();
+		DataViewer dataviewer = new DataViewer("example7");
+		log.info("Running at : {}", dataviewer.getUrl());
 
 		DataViewerConfiguration config = new DataViewerConfiguration();
 		config.setPlotTitle("Contour Example");
@@ -270,7 +181,8 @@ public class DataViewerFactory {
 
 	public static DataViewer createDataViewerExample8() {
 
-		DataViewer dataviewer = new DataViewer();
+		DataViewer dataviewer = new DataViewer("example8");
+		log.info("Running at : {}", dataviewer.getUrl());
 
 		DataViewerConfiguration config = new DataViewerConfiguration();
 		config.setPlotTitle("Histogram Example");
@@ -287,7 +199,8 @@ public class DataViewerFactory {
 
 	public static DataViewer createDataViewerExample9() {
 
-		DataViewer dataviewer = new DataViewer();
+		DataViewer dataviewer = new DataViewer("example9");
+		log.info("Running at : {}", dataviewer.getUrl());
 
 		DataViewerConfiguration config = new DataViewerConfiguration();
 		config.setPlotTitle("Density Example");
@@ -303,6 +216,84 @@ public class DataViewerFactory {
 		dataviewer.updatePlot(plotData);
 
 		return dataviewer;
+	}
+
+	// Update Example
+	public static synchronized DataViewer createDataViewerUpdateExample(int caseIdx) {
+
+		String csvFile = "";
+		String plotTitle = "";
+		csvFile = DataViewerFactory.class.getResource("/files/test_file1.csv").getPath();
+		plotTitle = "Test 1a data";
+
+		List<Double[]> parsedDataDouble = new ArrayList<>();
+
+		BufferedReader bufferReader = null;
+		String line = "";
+		try {
+			bufferReader = new BufferedReader(new FileReader(csvFile));
+			while ((line = bufferReader.readLine()) != null) {
+				String[] field = line.split(",");
+				Double[] dataRow = new Double[512];
+				if (field.length == 513) {
+					for (int i = 1; i < field.length; i++) {
+						dataRow[i - 1] = Double.parseDouble(field[i]);
+					}
+					parsedDataDouble.add(dataRow);
+				}
+			}
+		} catch (FileNotFoundException ex) {
+			log.error("FileNotFoundException", ex);
+		} catch (IOException ex) {
+			log.error("IOException", ex);
+		} finally {
+			if (bufferReader != null) {
+				try {
+					bufferReader.close();
+				} catch (IOException ex) {
+					log.error("IOException", ex);
+				}
+			}
+		}
+
+		Double[] exampleFrequency = new Double[512];
+		for (int i = 0; i < 512; i++) {
+			exampleFrequency[i] = (double) 11000 / (exampleFrequency.length * 2) * i;
+		}
+
+		DataViewer dataviewer = new DataViewer("updateExample" + caseIdx);
+
+		DataViewerConfiguration config = new DataViewerConfiguration();
+		config.setPlotTitle(plotTitle);
+		config.setxAxisTitle("Frequency(Hz)");
+		config.setyAxisTitle("Data");
+		config.showLegend(true);
+		config.setyRange(-160.0, -50.0);
+		dataviewer.updateConfiguration(config);
+
+		PlotData plotData = new PlotData();
+		LineTrace<Double> bigTrace = new LineTrace<>();
+		bigTrace.setTraceName("example trace");
+		bigTrace.setxArray(exampleFrequency);
+
+		plotData.addTrace(bigTrace);
+
+		dataviewer.updatePlot(plotData);
+
+		executor.scheduleAtFixedRate(() -> DataViewerFactory.updateData(dataviewer, bigTrace, parsedDataDouble), 5000,
+				150, TimeUnit.MILLISECONDS);
+
+		return dataviewer;
+
+	}
+
+	private static void updateData(DataViewer dataviewer, LineTrace<Double> tuneTrace, List<Double[]> tuneData) {
+		if (index == tuneData.size())
+			index = 0;
+		tuneTrace.setyArray(tuneData.get(index++));
+		PlotData plot = new PlotData();
+		plot.addTrace(tuneTrace);
+		dataviewer.updatePlot(plot);
 	}
 
 }

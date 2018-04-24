@@ -1,4 +1,4 @@
-package charts.dataviewer.factory;
+package org.charts.dataviewer.example.factory;
 
 import java.util.Random;
 
