@@ -1,4 +1,7 @@
 # dataviewer-example
+
+[![Build Status](https://travis-ci.org/jasrodis/dataviewer-example.svg?branch=master)](https://travis-ci.org/jasrodis/dataviewer-exampl
+
 * Step one: Download dataviewer project. (https://github.com/jasrodis/dataviewer)
 * Step two: Go to project directory and install it to your local repo ( mvn install )
 * Step three: Download dataviewer-example project & go to the project directory.
