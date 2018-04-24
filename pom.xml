@@ -7,6 +7,13 @@
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
+	<repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+
 	<name>dataviewer-example</name>
 
 	<properties>
@@ -75,11 +82,13 @@
 	<!-- Dependencies -->
 	<dependencies>
 
+		<!-- 
 		<dependency>
 			<groupId>org.charts</groupId>
 			<artifactId>dataviewer</artifactId>
-			<version>1.0.0</version>
+			<version>{latest.version}</version>
 		</dependency>
+		-->
 
 		<!-- Logging Logback -->
 		<dependency>
@@ -99,6 +108,12 @@
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 		</dependency>
+
+	<dependency>
+		<groupId>com.github.jasrodis</groupId>
+		<artifactId>dataviewer</artifactId>
+		<version>-SNAPSHOT</version>
+	</dependency>
 
 	</dependencies>
 </project>
