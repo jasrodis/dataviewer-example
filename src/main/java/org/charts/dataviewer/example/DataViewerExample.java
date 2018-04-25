@@ -9,7 +9,7 @@ public class DataViewerExample {
 	private static final Logger log = LoggerFactory.getLogger(DataViewerExample.class);
 
 	public static void main(String[] args) throws InterruptedException {
-		log.info("Application started!");
+		log.info("DataViewerExample started!");
 		test();
 	}
 

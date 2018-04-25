@@ -10,9 +10,6 @@
 			<pattern>%d{HH:mm:ss.SSS} > %28thread %highlight(%-5level) %cyan(%40logger{15}:%4L) %highlight(=>) %green(%msg) %n</pattern>
 		</encoder>
 	</appender>
-	<!-- <appender name="FILE" class="ch.qos.logback.core.FileAppender"> <file>LhcFeedbackDashboard.log</file> 
-		<encoder> <Pattern>%d{yyyy-MM-dd_HH:mm:ss.SSS} [%20thread] %-5level %logger{36} 
-		- %msg%n</Pattern> </encoder> </appender> -->
 	<root level="INFO">
 		<appender-ref ref="STDOUT" />
 		<appender-ref ref="FILE" />
