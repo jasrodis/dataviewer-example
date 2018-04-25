@@ -33,7 +33,6 @@ public class DataViewerFactory {
 	public static DataViewer createDataViewerExample1() {
 
 		DataViewer dataviewer = new DataViewer("example1");
-		log.info("Running at : {}", dataviewer.getUrl());
 
 		DataViewerConfiguration config = new DataViewerConfiguration();
 		config.setPlotTitle("Line Trace Example");
@@ -56,7 +55,6 @@ public class DataViewerFactory {
 	public static DataViewer createDataViewerExample2() {
 
 		DataViewer dataviewer = new DataViewer("example2");
-		log.info("Running at : {}", dataviewer.getUrl());
 
 		DataViewerConfiguration config = new DataViewerConfiguration();
 		config.setPlotTitle("Multiple Trace Example");
@@ -77,7 +75,6 @@ public class DataViewerFactory {
 
 	public static DataViewer createDataViewerExample3() {
 		DataViewer dataviewer = new DataViewer("example3");
-		log.info("Running at : {}", dataviewer.getUrl());
 
 		DataViewerConfiguration config = new DataViewerConfiguration();
 		config.setPlotTitle("Bar Trace Example");
@@ -98,7 +95,6 @@ public class DataViewerFactory {
 
 	public static DataViewer createDataViewerExample4() {
 		DataViewer dataviewer = new DataViewer("example4");
-		log.info("Running at : {}", dataviewer.getUrl());
 
 		DataViewerConfiguration config = new DataViewerConfiguration();
 		config.setPlotTitle("Scatter Trace Example");
@@ -119,7 +115,6 @@ public class DataViewerFactory {
 	public static DataViewer createDataViewerExample5() {
 
 		DataViewer dataviewer = new DataViewer("example5");
-		log.info("Running at : [{}]", dataviewer.getUrl());
 
 		DataViewerConfiguration config = new DataViewerConfiguration();
 		config.setPlotTitle("Hybrid Log Trace Example");
@@ -144,7 +139,6 @@ public class DataViewerFactory {
 	public static DataViewer createDataViewerExample6() {
 
 		DataViewer dataviewer = new DataViewer("example6");
-		log.info("Running at : {}", dataviewer.getUrl());
 
 		DataViewerConfiguration config = new DataViewerConfiguration();
 		config.setPlotTitle("TimeSeries Trace Example");
@@ -164,7 +158,6 @@ public class DataViewerFactory {
 	public static DataViewer createDataViewerExample7() {
 
 		DataViewer dataviewer = new DataViewer("example7");
-		log.info("Running at : {}", dataviewer.getUrl());
 
 		DataViewerConfiguration config = new DataViewerConfiguration();
 		config.setPlotTitle("Contour Example");
@@ -182,7 +175,6 @@ public class DataViewerFactory {
 	public static DataViewer createDataViewerExample8() {
 
 		DataViewer dataviewer = new DataViewer("example8");
-		log.info("Running at : {}", dataviewer.getUrl());
 
 		DataViewerConfiguration config = new DataViewerConfiguration();
 		config.setPlotTitle("Histogram Example");
@@ -200,7 +192,6 @@ public class DataViewerFactory {
 	public static DataViewer createDataViewerExample9() {
 
 		DataViewer dataviewer = new DataViewer("example9");
-		log.info("Running at : {}", dataviewer.getUrl());
 
 		DataViewerConfiguration config = new DataViewerConfiguration();
 		config.setPlotTitle("Density Example");
