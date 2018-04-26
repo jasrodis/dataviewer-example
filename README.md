@@ -11,4 +11,6 @@
 *  Check your console output and navigate to one of the pages !  http://localhost:8090/view/example1
 *  Documentation : https://github.com/jasrodis/dataviewer
 
+![Smaller icon](https://raw.githubusercontent.com/jasrodis/dataviewer/master/Documentation/images/dataviewer-browser-example.png "Dataviewer in Browser")
+
 
