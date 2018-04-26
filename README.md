@@ -9,5 +9,6 @@
 *  Go to the project location.
 *  Run the maven wrapper!  `./mvnw clean compile exec:java`
 *  Check your console output and navigate to one of the pages !  http://localhost:8090/view/example1
+*  Documentation : https://github.com/jasrodis/dataviewer
 
 
