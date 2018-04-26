@@ -10,6 +10,8 @@ public class DataViewerExample {
 
 	public static void main(String[] args) throws InterruptedException {
 		log.info("DataViewerExample started!");
+		log.info("Using ANSI Console colours. ");
+		log.info("If running in windows change logback.xml. For eclipse install ANSI Console!");
 		test();
 	}
 
