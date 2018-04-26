@@ -1,12 +1,13 @@
 # dataviewer-example
 
+![Smaller icon](https://github.com/jasrodis/dataviewer/Documentation/images/logo.png?raw=true "Dataviewer") 
 
 [![Build Status](https://travis-ci.org/jasrodis/dataviewer-example.svg?branch=master)](https://travis-ci.org/jasrodis/dataviewer-example)
 
-* Step one: Download dataviewer project. (https://github.com/jasrodis/dataviewer)
-* Step two: Go to project directory and install it to your local repo ( mvn install )
-* Step three: Download dataviewer-example project & go to the project directory.
-* Step four: Run it! ( mvn clean compile && mvn exec:java )
-* Check the different urls in your browser (http://localhost:8090/view/example1 etc..)
+## Run it! 
 
-* Note: Running it from Eclipse will not work if you have the dataviewer project open! (it will display a white page)
+*  Go to the project location.
+*  Run the maven wrapper!  `./mvnw clean compile exec:java`
+*  Check your console output and navigate to one of the pages !  http://localhost:8090/view/example1
+
+
