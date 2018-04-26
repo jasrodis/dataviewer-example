@@ -210,7 +210,7 @@ public class DataViewerFactory {
 	}
 
 	// Update Example
-	public static synchronized DataViewer createDataViewerUpdateExample(int caseIdx) {
+	public static synchronized DataViewer createDataViewerUpdateExample() {
 
 		String csvFile = "";
 		String plotTitle = "";
@@ -252,7 +252,7 @@ public class DataViewerFactory {
 			exampleFrequency[i] = (double) 11000 / (exampleFrequency.length * 2) * i;
 		}
 
-		DataViewer dataviewer = new DataViewer("updateExample" + caseIdx);
+		DataViewer dataviewer = new DataViewer("updateExample");
 
 		DataViewerConfiguration config = new DataViewerConfiguration();
 		config.setPlotTitle(plotTitle);
