@@ -1,6 +1,6 @@
 # dataviewer-example
 
-![Smaller icon](https://github.com/jasrodis/dataviewer/Documentation/images/logo.png?raw=true "Dataviewer") 
+![Smaller icon](https://github.com/jasrodis/dataviewer/tree/master/Documentation/images/logo.png?raw=true "Dataviewer") 
 
 [![Build Status](https://travis-ci.org/jasrodis/dataviewer-example.svg?branch=master)](https://travis-ci.org/jasrodis/dataviewer-example)
 
