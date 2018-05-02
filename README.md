@@ -17,7 +17,7 @@
 
 <p align="center">
   <a href="https://travis-ci.org/jasrodis/dataviewer-example">
-    <img alt="travis" src="https://travis-ci.org/jasrodis/dataviewer-example.svg?branch=master">
+    <img alt="travis" src="https://img.shields.io/travis/jasrodis/dataviewer-example.svg?style=flat-square">
   </a>
   <a href="https://opensource.org/licenses/MIT">
     <img alt="licence" src="https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square">
